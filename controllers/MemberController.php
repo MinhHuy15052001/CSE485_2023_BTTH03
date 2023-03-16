@@ -16,7 +16,7 @@ class MemberController {
             }
         }
 
-        include("views/member/login.twig");
+        include("views/admin/admin.twig");
     }
 
 }

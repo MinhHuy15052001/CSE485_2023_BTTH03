@@ -6,16 +6,21 @@ include("configs/DBConnection.php");
     $dbConn = new DBConnection();
     $conn = $dbConn->getConnection();
 
-
+    
     $sql = 'SELECT * FROM nguoidung WHERE username = :username AND password = :password';
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $password);
-
+   
 
     $stmt->execute();
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     return $user;
 
+    // if ($user) {
+    //     include 'views/admin/admin.php';
+    // } else {
+    //     echo 'Sai thông tin đăng nhập'
+    // }
 }
